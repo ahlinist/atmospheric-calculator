@@ -1,5 +1,4 @@
 FROM openjdk:11
-RUN ./graldew clean build
 COPY ./build/libs/*.jar /usr/app/
 WORKDIR /usr/app
 EXPOSE 8088
