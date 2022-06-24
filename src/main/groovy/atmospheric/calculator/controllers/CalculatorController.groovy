@@ -4,9 +4,11 @@ import atmospheric.calculator.constants.SeaLevel
 import atmospheric.calculator.enums.Layer
 import atmospheric.calculator.model.CalculationResult
 import atmospheric.calculator.services.CalculatorService
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.server.ResponseStatusException
 
 @RestController
 class CalculatorController {
@@ -20,7 +22,7 @@ class CalculatorController {
     @GetMapping("/calculate")
     CalculationResult calculate(@RequestParam BigDecimal height) {
         if (height < SeaLevel.HEIGHT || height > Layer.MESOSPHERE_LOW.maxHeight) {
-            return 'Height should be between 0 and 71000 m'
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 'Height should be between 0 and 71000 m')
         }
 
         calculatorService.calculate(height)
