@@ -17,7 +17,7 @@ class CalculatorController {
         this.calculatorService = calculatorService
     }
 
-    @GetMapping("/")
+    @GetMapping("/calculate")
     CalculationResult calculate(@RequestParam BigDecimal height) {
         if (height < SeaLevel.HEIGHT || height > Layer.MESOSPHERE_LOW.maxHeight) {
             return 'Height should be between 0 and 71000 m'
