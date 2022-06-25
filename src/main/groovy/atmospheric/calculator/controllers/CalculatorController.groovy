@@ -23,7 +23,7 @@ class CalculatorController {
     }
 
     @GetMapping("/calculate")
-    CalculationResult calculate(@RequestParam BigDecimal height) {
+    CalculationResult calculate(@RequestParam(required = false, defaultValue = "0") BigDecimal height) {
         if (height < SeaLevel.HEIGHT || height > Layer.MESOSPHERE_LOW.maxHeight) {
             throw new InvalidInputException()
         }
