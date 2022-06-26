@@ -12,7 +12,7 @@ enum Layer {
     STRATOPAUSE(51000.0, 0.0),
     MESOSPHERE_LOW(71000.0, -0.0028)
 
-    BigDecimal maxHeight
+    BigDecimal maxHeight // m
     BigDecimal lapseRate
 
     Layer(BigDecimal maxHeight, BigDecimal lapseRate) {
