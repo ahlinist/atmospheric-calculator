@@ -1,7 +1,7 @@
 package atmospheric.calculator.controllers
 
-import atmospheric.calculator.constants.SeaLevel
-import atmospheric.calculator.enums.Layer
+import atmospheric.calculator.atmosphere.AirSeaLevelConstants
+import atmospheric.calculator.atmosphere.Layer
 import atmospheric.calculator.exception.InvalidInputException
 import atmospheric.calculator.model.CalculationResult
 import atmospheric.calculator.services.CalculatorService
@@ -24,7 +24,7 @@ class CalculatorController {
 
     @GetMapping("/calculate")
     CalculationResult calculate(@RequestParam(required = false, defaultValue = "0") BigDecimal height) {
-        if (height < SeaLevel.HEIGHT || height > Layer.MESOSPHERE_LOW.maxHeight) {
+        if (height < AirSeaLevelConstants.HEIGHT || height > Layer.MESOSPHERE_LOW.maxHeight) {
             throw new InvalidInputException()
         }
 

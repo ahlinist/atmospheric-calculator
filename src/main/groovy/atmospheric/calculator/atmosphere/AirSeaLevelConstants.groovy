@@ -1,6 +1,6 @@
-package atmospheric.calculator.constants
+package atmospheric.calculator.atmosphere
 
-abstract class SeaLevel {
+abstract class AirSeaLevelConstants {
 
     static final BigDecimal PRESSURE = 101325.0 //Pa
     static final BigDecimal TEMPERATURE = 288.15 //K

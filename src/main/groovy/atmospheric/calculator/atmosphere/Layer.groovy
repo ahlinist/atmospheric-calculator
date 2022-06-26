@@ -1,4 +1,4 @@
-package atmospheric.calculator.enums
+package atmospheric.calculator.atmosphere
 
 import groovy.transform.CompileStatic
 

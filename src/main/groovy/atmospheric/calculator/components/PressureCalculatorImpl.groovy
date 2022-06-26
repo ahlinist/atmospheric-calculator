@@ -3,8 +3,8 @@ package atmospheric.calculator.components
 import groovy.transform.CompileStatic
 import org.springframework.stereotype.Component
 
-import static atmospheric.calculator.constants.General.GRAVITATIONAL_ACCELERATION
-import static atmospheric.calculator.constants.General.AIR_GAS_CONSTANT
+import static atmospheric.calculator.atmosphere.GeneralConstants.GRAVITATIONAL_ACCELERATION
+import static atmospheric.calculator.atmosphere.GeneralConstants.AIR_GAS_CONSTANT
 
 @Component
 @CompileStatic

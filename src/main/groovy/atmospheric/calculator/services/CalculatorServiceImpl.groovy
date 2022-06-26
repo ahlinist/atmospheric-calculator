@@ -3,18 +3,18 @@ package atmospheric.calculator.services
 import atmospheric.calculator.components.DensityCalculator
 import atmospheric.calculator.components.PressureCalculator
 import atmospheric.calculator.components.TemperatureCalculator
-import atmospheric.calculator.enums.Layer
+import atmospheric.calculator.atmosphere.Layer
 import atmospheric.calculator.model.CalculationResult
 import org.springframework.stereotype.Service
 
-import atmospheric.calculator.constants.SeaLevel
+import atmospheric.calculator.atmosphere.AirSeaLevelConstants
 
-import static atmospheric.calculator.enums.Layer.MESOSPHERE_LOW
-import static atmospheric.calculator.enums.Layer.STRATOPAUSE
-import static atmospheric.calculator.enums.Layer.STRATOSPHERE_LOW
-import static atmospheric.calculator.enums.Layer.STRATOSPHERE_HIGH
-import static atmospheric.calculator.enums.Layer.TROPOSHPERE
-import static atmospheric.calculator.enums.Layer.TROPOPAUSE
+import static atmospheric.calculator.atmosphere.Layer.MESOSPHERE_LOW
+import static atmospheric.calculator.atmosphere.Layer.STRATOPAUSE
+import static atmospheric.calculator.atmosphere.Layer.STRATOSPHERE_LOW
+import static atmospheric.calculator.atmosphere.Layer.STRATOSPHERE_HIGH
+import static atmospheric.calculator.atmosphere.Layer.TROPOSHPERE
+import static atmospheric.calculator.atmosphere.Layer.TROPOPAUSE
 
 @Service
 class CalculatorServiceImpl implements CalculatorService {
@@ -35,11 +35,11 @@ class CalculatorServiceImpl implements CalculatorService {
 
     CalculationResult calculate(BigDecimal height) {
         Boolean finalIteration = Boolean.FALSE
-        BigDecimal baseTemperature = SeaLevel.TEMPERATURE
-        BigDecimal basePressure = SeaLevel.PRESSURE
-        BigDecimal density = SeaLevel.DENSITY
-        BigDecimal initialHeight = SeaLevel.HEIGHT
-        BigDecimal currentHeight = SeaLevel.HEIGHT
+        BigDecimal baseTemperature = AirSeaLevelConstants.TEMPERATURE
+        BigDecimal basePressure = AirSeaLevelConstants.PRESSURE
+        BigDecimal density = AirSeaLevelConstants.DENSITY
+        BigDecimal initialHeight = AirSeaLevelConstants.HEIGHT
+        BigDecimal currentHeight = AirSeaLevelConstants.HEIGHT
 
         for (Layer layer in LAYERS) {
             if (initialHeight >= height) {
