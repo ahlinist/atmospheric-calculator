@@ -26,7 +26,8 @@ class CalculatorServiceImpl implements CalculatorService {
     private final PressureCalculator pressureCalculator
     private final DensityCalculator densityCalculator
 
-    CalculatorServiceImpl(TemperatureCalculator temperatureCalculator, PressureCalculator pressureCalculator, DensityCalculator densityCalculator) {
+    CalculatorServiceImpl(TemperatureCalculator temperatureCalculator,
+                          PressureCalculator pressureCalculator, DensityCalculator densityCalculator) {
         this.temperatureCalculator = temperatureCalculator
         this.pressureCalculator = pressureCalculator
         this.densityCalculator = densityCalculator
