@@ -123,7 +123,7 @@ const displayError = (message) => {
 heightInput.oninput = (e) => {
   const height = e.target.value;
 
-  if (height < HEIGHT || height > MESOSPHERE_LOW.maxHeight) {
+  if (height < HEIGHT || height > MESOSPHERE_LOW.maxHeight || isNaN(height)) {
     displayError("Height should be an integer or decimal value between 0 and 71000");
   } else {
     const result = calculateAtmosphere(height);
