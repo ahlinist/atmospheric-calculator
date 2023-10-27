@@ -73,9 +73,9 @@ class AtmosphericParametersCalculator {
             }
     
             const lapseRate = layer.lapseRate;
-            const temperature = temperatureCalculator.calculate(baseTemperature, lapseRate, initialHeight, currentHeight);
-            const pressure = pressureCalculator.calculate(basePressure, baseTemperature, temperature, lapseRate, initialHeight, currentHeight);
-            density = densityCalculator.calculate(temperature, pressure);
+            const temperature = this.temperatureCalculator.calculate(baseTemperature, lapseRate, initialHeight, currentHeight);
+            const pressure = this.pressureCalculator.calculate(basePressure, baseTemperature, temperature, lapseRate, initialHeight, currentHeight);
+            density = this.densityCalculator.calculate(temperature, pressure);
     
             baseTemperature = temperature
             basePressure = pressure
@@ -98,6 +98,7 @@ const calculateAtmosphere = (height) => {
     return atmosphericParametersCalculator.calculate(height);
 }
 
+//----------------------------
 
 const heightInput = document.querySelector("input[name=height]");
 const temperatureContainer = document.querySelector("p#temperature");
