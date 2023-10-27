@@ -121,15 +121,12 @@ const displayError = (message) => {
 };
 
 heightInput.oninput = (e) => {
-  const result = calculateAtmosphere(e.target.value);
-  populateCalculationContainer(result);
-  /*fetch('/calculate?height=' + e.target.value)
-    .then(res => {
-      if (!res.ok) {
-        return res.json().then(data => { throw new Error(data.message) })
-      }
-      return res.json();
-    })
-    .then(populateCalculationContainer)
-    .catch(displayError);*/
+  const height = e.target.value;
+
+  if (height < HEIGHT || height > MESOSPHERE_LOW.maxHeight) {
+    displayError("Height should be an integer or decimal value between 0 and 71000");
+  } else {
+    const result = calculateAtmosphere(height);
+    populateCalculationContainer(result);
+  }
 };
