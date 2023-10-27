@@ -1,4 +1,4 @@
-import { calculateAtmosphere } from "./calculator/calculator";
+import { calculateAtmosphere } from "./calculator/calculator.js";
 
 const heightInput = document.querySelector("input[name=height]");
 const temperatureContainer = document.querySelector("p#temperature");
