@@ -22,13 +22,13 @@ class CalculationResult {
 }
 
 class DensityCalculator {
-    calculateDensity(temperature, pressure) {
+    calculate(temperature, pressure) {
         return pressure / (AIR_GAS_CONSTANT * temperature);
     }
 }
 
 class PressureCalculator {
-    calculatePressure(basePressure, baseTemperature, temperature, lapseRate, initialHeight, currentHeight) {
+    calculate(basePressure, baseTemperature, temperature, lapseRate, initialHeight, currentHeight) {
         if (lapseRate) {
             return basePressure * (temperature/baseTemperature)**(-GRAVITATIONAL_ACCELERATION/(lapseRate * AIR_GAS_CONSTANT));
         } else {
@@ -39,7 +39,7 @@ class PressureCalculator {
 }
 
 class TemperatureCalculator {
-    calculateTemperature(baseTemperature, lapseRate, initialHeight, currentHeight) {
+    calculate(baseTemperature, lapseRate, initialHeight, currentHeight) {
         return baseTemperature + (lapseRate * (currentHeight - initialHeight));
     }
 }
